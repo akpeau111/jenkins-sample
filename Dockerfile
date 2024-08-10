@@ -1,7 +1,5 @@
-FROM ubuntu 
-RUN apt update 
-RUN apt install -y apache2 
-RUN apt install -y apache2-utils 
-RUN apt clean 
-EXPOSE 80
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+FROM akpeau/apache218:newapache218
+
+RUN rm /var/www/html/index.html
+
+ADD ./index.html /var/www/html
